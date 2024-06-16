@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class PromedioEst {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { 
         HashMap<String, Double> Calificacion_Estudiante = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
 
@@ -24,25 +24,25 @@ public class PromedioEst {
             Calificacion_Estudiante.put(nombre_estudiante, calificacion);
         }
 
-        double calificacion_promedio = calculateAverage(Calificacion_Estudiante);
+        double calificacion_promedio = calcular_promedio(Calificacion_Estudiante);
         System.out.println("Calificacion Promedio: " + calificacion_promedio);
 
         System.out.println("Estudiante(s) con calificacion por encima del promedio:");
-        for (Map.Entry<String, Double> entry : Calificacion_Estudiante.entrySet()) {
-            if (entry.getValue() > calificacion_promedio) {
-                System.out.println(entry.getKey());
+        for (Map.Entry<String, Double> entrada_est : Calificacion_Estudiante.entrySet()) {
+            if (entrada_est.getValue() > calificacion_promedio) {
+                System.out.println(entrada_est.getKey());
             }
         }
 
         scanner.close();
     }
 
-    private static double calculateAverage(Map<String, Double> Calificacion_Estudiante) {
+    private static double calcular_promedio(Map<String, Double> Calificacion_Estudiante) {
         double sum = 0;
         int cont = 0;
 
-        for (double grade : Calificacion_Estudiante.values()) {
-            sum += grade;
+        for (double calificacion : Calificacion_Estudiante.values()) {
+            sum += calificacion;
             cont++;
         }
 
